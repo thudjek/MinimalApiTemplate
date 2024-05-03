@@ -3,11 +3,19 @@
 	"order": 0,
 	"symbolInfo": [
 		{
-			"id": "Data access",
+			"id": "DataAccess",
+			"name":
+			{
+				"text": "Data access"
+			},
 			"isVisible": true
 		},
 		{
 			"id": "RabbitMQ",
+			"name":
+			{
+				"text": "Use RabbitMQ as message broker"
+			},
 			"isVisible": true
 		}
 	]

@@ -4,7 +4,7 @@
   "classifications": [
     "Web",
     "WebAPI",
-	  "MinimalAPI"
+	"MinimalAPI"
   ],
   "name": ".NET Minimal API Template",
   "description": ".NET Web Minimal API project template using vertical slices",
@@ -39,21 +39,21 @@
 			{
 				"condition": "(!EF)",
 				"exclude": [
-					"MinimalApiTemplate.REST/Persistance/AppDbContext.cs",
-					"MinimalApiTemplate.REST/Persistance/AppDbContextFactory.cs"
+					"src/MinimalApiTemplate.REST/Persistance/AppDbContext.cs",
+					"src/MinimalApiTemplate.REST/Persistance/AppDbContextFactory.cs"
 				]
 			},
 			{
 				"condition": "(!Dapper)",
 				"exclude": [
-					"MinimalApiTemplate.REST/Persistance/Scripts/**",
-					"MinimalApiTemplate.REST/Persistance/DatabaseException.cs"
+					"src/MinimalApiTemplate.REST/Persistance/Scripts/**",
+					"src/MinimalApiTemplate.REST/Persistance/DatabaseException.cs"
 				]
 			},
 			{
 				"condition": "(!RabbitMQ)",
 				"exclude": [
-					"MinimalApiTemplate.REST/MessageBroker/**"
+					"src/MinimalApiTemplate.REST/MessageBroker/**"
 				]
 			}
 		]
@@ -74,7 +74,7 @@
 			}
 		],
 		"defaultValue": "Entity Framework",
-		"description": "Select data access"
+		"description": "Select data access to use"
 	},
   "EF": {
     "type": "computed",
@@ -87,7 +87,8 @@
 	"RabbitMQ": {
 		"type": "parameter",
 		"datatype": "bool",
-		"defaultValue": "false"
+		"defaultValue": "false",
+		"description": "Check if you want to use RabbitMQ as message broker"
 	}
   },
   "SpecialCustomOperations": {
