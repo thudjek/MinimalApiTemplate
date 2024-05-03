@@ -4,7 +4,7 @@
   "classifications": [
     "Web",
     "WebAPI",
-	"MinimalAPI"
+	  "MinimalAPI"
   ],
   "name": ".NET Minimal API Template",
   "description": ".NET Web Minimal API project template using vertical slices",
@@ -60,7 +60,7 @@
 	}
   ],
   "symbols": {
-	"Data access": {
+	"DataAccess": {
 		"type": "parameter",
 		"datatype": "choice",
 		"choices": [
@@ -76,14 +76,14 @@
 		"defaultValue": "Entity Framework",
 		"description": "Select data access"
 	},
-	"EF": {
-		"type": "computed",
-		"value": "(Database == \"Entity Framework\")"
-	},
-	"Dapper": {
-		"type": "computed",
-		"value": "(Database == \"Dapper\")"
-	},
+  "EF": {
+    "type": "computed",
+    "value": "(DataAccess == \"Entity Framework\")"
+  },
+  "Dapper": {
+    "type": "computed",
+    "value": "(DataAccess == \"Dapper\")"
+  },
 	"RabbitMQ": {
 		"type": "parameter",
 		"datatype": "bool",
