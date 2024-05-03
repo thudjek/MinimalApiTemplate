@@ -1,0 +1,14 @@
+{
+	"$schema": "http://json.schemastore.org/ide.host",
+	"order": 0,
+	"symbolInfo": [
+		{
+			"id": "Data access",
+			"isVisible": true
+		},
+		{
+			"id": "RabbitMQ",
+			"isVisible": true
+		}
+	]
+}

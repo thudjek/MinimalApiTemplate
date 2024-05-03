@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>ecdd4b6d-817e-499a-8fd8-648d5738ee48</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+	<AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+	<DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+<!--#if (Dapper)-->
+  <ItemGroup>
+    <EmbeddedResource Include="Persistance\Scripts\Migrations\Mig00001_IdentityTables.sql" />
+  </ItemGroup>
+<!--#endif -->
+	
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.11.1" />
+<!--#if (Dapper)-->
+    <PackageReference Include="Dapper" Version="2.1.44" />
+    <PackageReference Include="dbup-sqlserver" Version="5.0.40" />
+	<PackageReference Include="TH.DapperIdentity" Version="1.0.5" />
+<!--#endif -->
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
+<!--#if (EF)-->
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+<!--#endif -->
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.1" />
+<!--#if (RabbitMQ)-->
+    <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+<!--#endif -->
+    <PackageReference Include="SendGrid.Extensions.DependencyInjection" Version="1.0.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+  </ItemGroup>
+	
+</Project>

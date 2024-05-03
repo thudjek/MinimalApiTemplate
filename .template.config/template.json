@@ -1,0 +1,182 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "thudjek",
+  "classifications": [
+    "Web",
+    "WebAPI",
+	"MinimalAPI"
+  ],
+  "name": ".NET Minimal API Template",
+  "description": ".NET Web Minimal API project template using vertical slices",
+  "identity": "minimal-webapi",
+  "shortName": "min-api",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "sourceName": "MinimalApiTemplate",
+  "preferNameDirectory": true,
+  "sources": [
+	{
+		"exclude": [
+			"README.md",
+			"VolumeData/**/*",
+			"**/[Bb]in/**",
+			"**/[Oo]bj/**",
+			".template.config/**/*",
+			"**/.git/**",
+			"*.nuspec",
+			"*.ps1",
+			".vs/**/*",
+			"**/*.filelist",
+			"**/*.user",
+			"**/*.lock.json",
+			"_rels/**/*",
+			"package/**/*",
+			"*.xml"
+		],
+		"modifiers": [
+			{
+				"condition": "(!EF)",
+				"exclude": [
+					"MinimalApiTemplate.REST/Persistance/AppDbContext.cs",
+					"MinimalApiTemplate.REST/Persistance/AppDbContextFactory.cs"
+				]
+			},
+			{
+				"condition": "(!Dapper)",
+				"exclude": [
+					"MinimalApiTemplate.REST/Persistance/Scripts/**",
+					"MinimalApiTemplate.REST/Persistance/DatabaseException.cs"
+				]
+			},
+			{
+				"condition": "(!RabbitMQ)",
+				"exclude": [
+					"MinimalApiTemplate.REST/MessageBroker/**"
+				]
+			}
+		]
+	}
+  ],
+  "symbols": {
+	"Data access": {
+		"type": "parameter",
+		"datatype": "choice",
+		"choices": [
+			{
+				"choice": "Entity Framework",
+				"description": "The app will use Entity Framework for data access"
+			},
+			{
+				"choice": "Dapper",
+				"description": "The app will use Dapper for data access"
+			}
+		],
+		"defaultValue": "Entity Framework",
+		"description": "Select data access"
+	},
+	"EF": {
+		"type": "computed",
+		"value": "(Database == \"Entity Framework\")"
+	},
+	"Dapper": {
+		"type": "computed",
+		"value": "(Database == \"Dapper\")"
+	},
+	"RabbitMQ": {
+		"type": "parameter",
+		"datatype": "bool",
+		"defaultValue": "false"
+	}
+  },
+  "SpecialCustomOperations": {
+        "**/*.yml": {
+            "operations": [
+              {
+                "type": "conditional",
+                "configuration": {
+                  "if": [ "#if" ],
+                  "else": [ "#else" ],
+                  "elseif": [ "#elseif" ],
+                  "endif": [ "#endif" ],
+                  "actionableIf": [ "##if" ],
+                  "actionableElse": [ "##else" ],
+                  "actionableElseif": [ "##elseif" ],
+                  "actions": [ "uncomment", "reduceComment" ],
+                  "trim": "true",
+                  "wholeLine": "true",
+                  "evaluator": "C++"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "#",
+                  "replacement": "",
+                  "id": "uncomment"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "##",
+                  "replacement": "#",
+                  "id": "reduceComment"
+                }
+              }
+            ]
+        },
+		"**/*.json": {
+            "operations": [
+              {
+                "type": "conditional",
+                "configuration": {
+                  "if": [ "//if" ],
+                  "else": [ "//else" ],
+                  "elseif": [ "//elseif" ],
+                  "endif": [ "//endif" ],
+                  "actionableIf": [ "////if" ],
+                  "actionableElse": [ "////else" ],
+                  "actionableElseif": [ "////elseif" ],
+                  "actions": [ "uncomment", "reduceComment" ],
+                  "trim": "true",
+                  "wholeLine": "true",
+                  "evaluator": "C++"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "//",
+                  "replacement": "",
+                  "id": "uncomment"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "////",
+                  "replacement": "//",
+                  "id": "reduceComment"
+                }
+              }
+            ]
+        },
+		"**/*.csproj": {
+			"operations": [
+			  {
+				"type": "conditional",
+				"configuration": {
+					"actionableIf": [ "<!--#if" ],
+					"actionableElse": [ "#else", "<!--#else" ],
+					"actionableElseif": [ "#elseif", "<!--#elseif" ],
+					"endif": [ "#endif", "<!--#endif" ],
+					"trim" : "true",
+					"wholeLine": "true"
+				}
+			  }
+			]
+		}
+    }
+}
