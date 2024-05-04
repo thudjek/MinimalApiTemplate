@@ -22,7 +22,7 @@ Run `dotnet new install TH.MinimalApiTemplate` to install the solution template.
 
 ### Create new project with dotnet CLI
 
-* In folder in which you want to create your project run `dotnet run min-api`
+* In folder in which you want to create your project run `dotnet new min-api`
     - add `-o "{ProjectName}"` parameter to name your project
     - add `--dataaccess` or `-dba` parameter with either "Entity Framework" or "Dapper" value to choose database (Entity Framework is default if parameter is not provided)
     - add `--rabbitmq` or `-rmq`parameter if you want to use RabbitMQ message broker

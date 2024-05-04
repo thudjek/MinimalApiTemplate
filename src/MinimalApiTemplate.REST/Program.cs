@@ -4,9 +4,6 @@ using MinimalApiTemplate.REST.Persistance;
 #if RabbitMQ
 using MinimalApiTemplate.REST.MessageBroker;
 #endif
-#if Dapper
-using MinimalApiTemplate.REST.Persistance;
-#endif
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
