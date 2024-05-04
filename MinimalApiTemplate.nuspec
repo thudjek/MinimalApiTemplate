@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>TH.MinimalApiTemplate</id>
-    <version>1.0.0</version>
-	<title>.NET Minimal API</title>
+    <version>1.0.1</version>
+    <title>.NET Minimal API</title>
     <description>.NET Web Minimal API project template using vertical slices</description>
-	<authors>thudjek</authors>
-	<copyright>Copyright (c) thudjek 2023.</copyright>
-	<projectUrl>https://github.com/thudjek/MinimalApiTemplate</projectUrl>
+    <authors>thudjek</authors>
+    <copyright>Copyright (c) thudjek 2023.</copyright>
+    <projectUrl>https://github.com/thudjek/MinimalApiTemplate</projectUrl>
     <repository type="git" url="https://github.com/thudjek/MinimalApiTemplate.git" branch="main" />
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <tags>.NET Web WebApi C# Minimal API</tags>
     <language>en-US</language>
-	<readme>README.md</readme>
-	<packageTypes>
+    <readme>README.md</readme>
+    <packageTypes>
       <packageType name="Template" />
     </packageTypes>
   </metadata>
   <files>
-	<file src="README.md" />
+    <file src="README.md" />
     <file src=".\**" exclude="**\bin\**\*;**\obj\**\*;**\*.user;**\*.lock.json;_rels\**\*;package\**\*;**\VolumeData\**\*;**\.vs\**\*;**\.git\**\*;**\.github\**\*;**\LICENSE.txt;**\README.md;" />
   </files>
 </package>
