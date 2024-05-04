@@ -42,18 +42,13 @@ NOTE: appsettings.json file with some default settings is provided with the temp
 
 * Common folder
     - Any common stuff that will be used throughout application (interfaces for services, endpoint filters, exceptions etc.)
-    
 * Entities and Enum folders are pretty much self explanatory. You can structure your entities in DDD style of how ever you prefer.
-
 * Features folder
     - Main folder for adding new features. Inside feature folder there should be "feature group" folder (for example "auth") inside which are specific features/endpoints. Inside feature group folder are services that are used throughout this feature group (fox example JWT for auth) and inside specific feature folder are files that define minimal api endpoint and it's business logic.
-
 * Persistance folder
     - Database related stuff. If entity framework is used here is where DbContext resides. If dapper is used then here we put .sql migration scripts that are applied with db-up tool.
-
 * Services folder
     - Any other service classes or most likely 3rd party integrations go here
-
 * MessageBroker folder
     - If on project creation we decide to use RabbitMQ this folder is created which holds classes and configuration for publisher, consumers and messages.
 
